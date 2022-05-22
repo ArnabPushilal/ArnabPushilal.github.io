@@ -5,7 +5,7 @@ main:
     url: /portfolio/
         
   - title: "Blog Posts"
-    url: /year-archive/
+    url: https://medium.com/@arnabpushilal
     
   - title: "CV"
     url: /cv/
