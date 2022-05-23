@@ -14,7 +14,7 @@ The story so far
 
 ##  Career 
 
-<p align="center">
+<p align="left">
     <img src="/images/Hero_MotoCorp.png" class="center" width="100" height="100" >
 </p>
 
