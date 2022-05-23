@@ -15,6 +15,8 @@ The story so far
 ### Career
 
 ![](/images/Hero_MotoCorp.png)
+<img src="/images/Hero_MotoCorp.png" width="200" height="200">
+
 My undergraduate studies provided a solid foundation for growth in the field of ML. But it was not until I started my professional career that I began to realize the importance of data science & ML and how significant it has become as a skill-set in the industry. The Indian two-wheeler market was transitioning to new emission norms and with that came a whole host of new sensors on-board our vehicles. This meant that tons of data were now available to us, which we didn’t have access to before. Mechanical problems in the vehicle could easily be recognized or predicted from patterns in the sensor data. Predictive Emission modeling, Objective scale rating evaluation, Fuel economy modeling are some of the projects that I had taken on when I started using tools in data science. In all of these cases, I had made my own dataset and attempted to make suitable models for each application. During my time at Hero, we were encouraged to learn as much as possible. This led me to swpending a lot of time on online learning resources like the stanford courses
 
 
