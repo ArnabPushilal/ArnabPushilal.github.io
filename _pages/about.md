@@ -23,6 +23,10 @@ My undergraduate studies provided a solid foundation for growth in the field of 
 
 ### Back to College Again
 
+<p align="left">
+    <img src="/images/ucl.png" class="center" width="100" height="100" >
+</p>
+
 
 
 
