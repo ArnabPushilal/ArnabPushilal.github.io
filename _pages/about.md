@@ -12,7 +12,7 @@ I am currently pursuing an Msc in Data Science & Machine Learning from UCL. I ha
 The story so far 
 ======
 
-## Career <img src="/images/Hero_MotoCorp.png" class="center" width="20" height="20" >
+## <img src="/images/Hero_MotoCorp.png" class="center" width="50" height="50" > Career 
 
 
 
