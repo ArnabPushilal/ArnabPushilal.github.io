@@ -12,7 +12,19 @@ I am currently pursuing an Msc in Data Science & Machine Learning from UCL. I ha
 The story so far 
 ======
 
-##  Career 
+## Undergraduate degree 2014 - 2018
+
+<p align="left">
+    <img src="/images/vit.png" class="center" width="100" height="100" >
+</p>
+
+The nice part of studying at VIT that even if we were doing electronics engineering, we had an option to design the curriculum to our liking with optionals. 
+
+
+
+
+
+##  Career 2018 - 2021
 
 <p align="left">
     <img src="/images/Hero_MotoCorp.png" class="center" width="100" height="100" >
@@ -21,13 +33,14 @@ The story so far
 My undergraduate studies provided a solid foundation for growth in the field of ML. But it was not until I started my professional career that I began to realize the importance of data science & ML and how significant it has become as a skill-set in the industry. The Indian two-wheeler market was transitioning to new emission norms and with that came a whole host of new sensors on-board our vehicles. This meant that tons of data were now available to us, which we didn’t have access to before. Mechanical problems in the vehicle could easily be recognized or predicted from patterns in the sensor data. Predictive Emission modeling, Objective scale rating evaluation, Fuel economy modeling are some of the projects that I had taken on when I started using tools in data science. In all of these cases, I had made my own dataset and attempted to make suitable models for each application. During my time at Hero, we were encouraged to learn as much as possible. This led me to spending a lot of time on online learning resources like the stanford based courses on vision, NLP (cs231n,cs224) and several coursera certifications. This inclined me to explore ML in an academic setting, covering each concept exhaustively & building up my capabilities in the field.
 
 
-### Back to College Again
+## Back to College Again 2021 - 2022
 
 <p align="left">
     <img src="/images/ucl.png" class="center" width="100" height="100" >
 </p>
 
-I decided to join UCL to pursue an MSc in Data Science & ML in the September'2022 cohort. Before joining, I had been extensively preparing to make sure I was capable enough to sucessfully taking advantage of the degree. The content of the degree was advanced and challenging and exactly what I had wanted in a master's degree. We had to do several coding based projects which involved a lot 
+I decided to join UCL to pursue an MSc in Data Science & ML in the September'2022 cohort. Before joining, I had been extensively preparing to make sure I was capable enough to sucessfully taking advantage of the degree. The content of the degree was challenging and exactly what I had wanted in a master's degree. We had a good mix of theoritical & practical modules that allowed me to learn something new, and implement it to truly solidify my understasnding.
+
 
 
 
