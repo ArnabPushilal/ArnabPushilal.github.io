@@ -32,7 +32,7 @@ A new dataset was prepared for this task by manually editing the "Call me Sexist
 
 ### Baseline Model
 
- A pretrained modular model checkpoint trained on the WNC by  [Pryzant2020AutomaticallyNS](https://www.semanticscholar.org/paper/Automatically-Neutralizing-Subjective-Bias-in-Text-Pryzant-Martinez/16981cc4ddefd3ea7655754fd83a2a8ff2203a8b) served as the baseline for our experiments. Inference was run directly on the model with our test sets and subsequently evaluated as per Section 4.3.
+ A pretrained modular model checkpoint trained on the WNC by  [Pryzant2020AutomaticallyNS](https://www.semanticscholar.org/paper/Automatically-Neutralizing-Subjective-Bias-in-Text-Pryzant-Martinez/16981cc4ddefd3ea7655754fd83a2a8ff2203a8b) served as the baseline for our experiments. Inference was run directly on the model with our test sets.
 
 ### Fine tuning the pretrained model
 
