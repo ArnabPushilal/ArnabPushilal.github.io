@@ -18,6 +18,7 @@ I intially queried the song's by year  & maximum items returned per call was 50,
 ## Data Description + Intial thoughts
 
 ### Description of the Data Collected ( according to spotify docs) :
+
 |Attribute |Description| Type |
 |--- | --- | --- |
 |1 - Acousticness (float) | A confidence measure from 0.0 to 1.0 of whether the track is acoustic.| Numerical|
