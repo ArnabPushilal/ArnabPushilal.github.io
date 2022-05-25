@@ -44,7 +44,7 @@ First things first, I can see a direct correlation with Year of Release and Popu
 
 ## Mean of Popularity of songs Per year
 
-![Year Vs Average PopularityScore](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/Year_vs_AvgPopScore.png)
+![Year Vs Average PopularityScore](/images/Year_vs_AvgPopScore.png)
 
 * We can see there is a direct correlation between a song's popularity & the year of release. 
 * Initially I was about to dump all the data into one model, then I thought it would be prudent of me to *make the model decade-wise*. Since all the new test data can't really be from the past. 
@@ -55,10 +55,10 @@ First things first, I can see a direct correlation with Year of Release and Popu
 ## Univariate plots
 
 ### 2000s
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/Univariate_00s.png)
+![](/images/Univariate_00s.png)
 
 ### 1980s
-<img src="https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/Univariate_80s.png" width="1000" height="400">
+<img src="/images/Univariate_80s.png" width="1000" height="400">
 
 * Distributions of 'acousticness', 'speechiness' , 'energy ', 'instrumentalness' seems to be skewed. I will probably have to try the box-cox trasnformation for some of the variables. 
 * In categorical variables 'key' of 4/4 is the most common 
@@ -70,7 +70,7 @@ First things first, I can see a direct correlation with Year of Release and Popu
 (Plots are Prior to log transformation)
 
 ### 1980s pairplot 
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/80s.png)
+![](/images/80s.png)
 
 * For single variables distributions of 'PopQuant 0 & 1' look very similar. This is not good.
 * Loudness looks like it has a slightly different mean for 0 & 1
@@ -78,7 +78,7 @@ First things first, I can see a direct correlation with Year of Release and Popu
 * We can see some variables which are linearly correlated, which I guess would be more clear with correlation heatmap
 
 ### 2010s pairplot
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/PairPlot.png)
+![](/images/PairPlot.png)
 
 * Danceability seems to have a distribution which is different for 0s & 1s
 * Instrumentalness plot has a lot of noise
@@ -88,19 +88,19 @@ First things first, I can see a direct correlation with Year of Release and Popu
 
 ### 1980s
 
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/HeatMap_80s%20(1).png)
+![](/images/HeatMap_80s%20(1).png)
 
 ### 1990s
 
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/HeatMap_90s%20(1).png)
+![](/images/HeatMap_90s%20(1).png)
 
 ### 2000s
 
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/HeatMap_00s%20(1).png)
+![](/images/HeatMap_00s%20(1).png)
 
 ### 2010s
 
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/HeatMap_10s%20(1).png)
+![](/images/HeatMap_10s%20(1).png)
 
 * No single variable has good linear correlation with 'PopQuant' which goes to *show a linear model won't do really well.
 
@@ -137,7 +137,7 @@ First things first, I can see a direct correlation with Year of Release and Popu
 ### ROC  
 * logistic : test ROC AUC=0.704
 * logistic :train ROC AUC=0.713
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/ROC_logistic.png)
+![](/images/ROC_logistic.png)
 
 
 ### Confusion Matrix for Logistic Regression
@@ -152,7 +152,7 @@ First things first, I can see a direct correlation with Year of Release and Popu
 
 ### Feature Importance with this model
 
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/feature_imp_2.png)
+![](/images/feature_imp_2.png)
 
 * Most important features contributing to 'Popularity - 1' seems to be loudness , danceability & NoOfmarkets. 
  .
@@ -165,7 +165,7 @@ First things first, I can see a direct correlation with Year of Release and Popu
 
 * Random : test ROC AUC=0.729
 * Random :train ROC AUC=1.000
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/ROC_Random%20(2).png)
+![](/images/ROC_Random%20(2).png)
  
 * The model turned out to be completely overfitting on the training data & not as good on the test data.
 
@@ -187,17 +187,17 @@ First things first, I can see a direct correlation with Year of Release and Popu
 ### Output Distribution vs Actual Distribution
 ### Train Data 
 
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/Actual%20vs%20Fitted%20Values%20for%20Popularity_train_rf%20(2).png)
+![](/images/Actual%20vs%20Fitted%20Values%20for%20Popularity_train_rf%20(2).png)
 * Train data seems to be following the distribution pretty well.
 
 ### Test Data
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/Actual%20vs%20Fitted%20Values%20for%20Popularity%20_test_rf.png)
+![](/images/Actual%20vs%20Fitted%20Values%20for%20Popularity%20_test_rf.png)
 * Although means seems about the same, std-dev has gone up. Extremely high / low predictions may be very error prone. ( High MSE )
 * Training data is clearly being overfit, this is similar to the classifier!
 
 ### Feature Importance according to this model
 
-![](https://github.com/ArnabPushilal/SpotifyProject/blob/master/images/feature_imp.png)
+![](/feature_imp.png)
 
 * It looks like the model can't distinguish between the features too well, but nevertheless 'danceability' & 'No of Market' has high importance
 * Intrestingly, the controllable musical features like 'key' ,'mode','time signature' is contributing the least! Therefore , I will probably have to dig deeper into how spotify calculates features like 'danceability', 'acousticness'
