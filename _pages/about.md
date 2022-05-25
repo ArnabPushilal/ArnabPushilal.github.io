@@ -18,10 +18,7 @@ The story so far
     <img src="/images/vit.png" class="center" width="100" height="100" >
 </p>
 
-The nice part of studying at VIT that even if we were doing electronics engineering, we had an option to design the curriculum to our liking with optionals. 
-
-
-
+The great part of studying at VIT that even if we were doing electronics engineering, we had an option to design the curriculum to our liking with optionals. I was exposed to data structures & alogrithms, Signal procesing, Neural networks, Probability & statistics with the modules that I had taken. My final thesis was to do with facial recognition for home security systems.
 
 
 ##  Career 2018 - 2021
