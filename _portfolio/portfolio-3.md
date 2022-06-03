@@ -18,7 +18,7 @@ Python, SQLAchemy, Flask, HTML, Docker, Pytorch
 To train the initial model the UTKFACE dataset was used [link](https://susanqq.github.io/UTKFace/). This consists of 20K+ images with assosiated ages. I used the ones where the faces are already detected and cropped. This was a consicious decision, since I planned to perform some sort of face detection on the image before the age detection.  
 
 Example Image from the training set.
-![32 Year old]('/images/32.jpg')
+![32 Year old]('images\32.jpg')
 
 
 
@@ -36,8 +36,39 @@ The model was based on the encoder of a VGG network. Each convolutional layer co
 depending on the user input of the image.
 
 
-![Original](/images/og.jpg) ![Detected Face](/images/face.jpg) ![Cropped](/images/crop.jpg)
+![Original]() ![Detected Face]() ![Cropped](/images/crop.jpg)
 
+
+<div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail">
+           
+              <img src="/images/og.jpg" alt="Lights" style="width:100%" width="200" height="200">
+              <div class="caption">
+                <p>Original Image</p>
+              </div>
+           
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            
+              <img src="/images/face.jpg" alt="Nature" style="width:100%" width="200" height="200">
+              <div class="caption">
+                <p>Detected facial features</p>
+              </div>
+          
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            
+              <img src="/images/crop.jpg" alt="Fjords" style="width:100%" width="200" height="200">
+              <div class="caption">
+                <p>Cropped Image</p>
+              </div>
+            
+          </div>
 # Front end
 
 The application had a very simple front-end interface. One base HTML file with a navbar where "home"
