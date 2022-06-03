@@ -36,14 +36,13 @@ The model was based on the encoder of a VGG network. Each convolutional layer co
 depending on the user input of the image.
 
 
-![Original]() ![Detected Face]() ![Cropped](/images/crop.jpg)
 
 
 <div class="row">
         <div class="col-md-4">
           <div class="thumbnail">
            
-              <img src="/images/og.jpg" alt="Lights" style="width:100%" width="200" height="200">
+              <img src="/images/og.jpg" alt="Lights" style="width:100%" width="50" height="50">
               <div class="caption">
                 <p>Original Image</p>
               </div>
@@ -53,7 +52,7 @@ depending on the user input of the image.
         <div class="col-md-4">
           <div class="thumbnail">
             
-              <img src="/images/face.jpg" alt="Nature" style="width:100%" width="200" height="200">
+              <img src="/images/face.png" alt="Nature" style="width:100%" width="50" height="50">
               <div class="caption">
                 <p>Detected facial features</p>
               </div>
@@ -63,7 +62,7 @@ depending on the user input of the image.
         <div class="col-md-4">
           <div class="thumbnail">
             
-              <img src="/images/crop.jpg" alt="Fjords" style="width:100%" width="200" height="200">
+              <img src="/images/crop.jpg" alt="Fjords" style="width:100%" width="50" height="50">
               <div class="caption">
                 <p>Cropped Image</p>
               </div>
