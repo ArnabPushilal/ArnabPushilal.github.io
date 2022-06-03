@@ -17,7 +17,8 @@ Python, SQLAchemy, Flask, HTML, Docker, Pytorch
 
 To train the initial model the UTKFACE dataset was used [link](https://susanqq.github.io/UTKFace/). This consists of 20K+ images with assosiated ages. I used the ones where the faces are already detected and cropped. This was a consicious decision, since I planned to perform some sort of face detection on the image before the age detection.  
 
-Example Image from the training set. <img src='/images/32.jpg' title="32 year old">
+Example Image from the training set.
+![32 Year old]('/images/32.jpg')
 
 
 
@@ -34,13 +35,8 @@ box co-ordinates for the face detected. The faces are cropped out and the croppe
 The model was based on the encoder of a VGG network. Each convolutional layer consists of a conv2d --batchnorm--relu. The feature dimensions are downsampled using maxpooling and finally two fully connected networks generated the predicted age. An MSE loss was used and the model was trained with a learning rate of 1e-4 and a batch size of 12. The model was then saved to be used at test time 
 depending on the user input of the image.
 
-<p float="left">
-  <img src="/images/og.jpg" width="100" />
-  <img src="/images/face.jpg" width="100" /> 
-  <img src="/images/crop.jpg" width="100" />
-</p>
 
-
+![Original](/images/og.jpg) ![Detected Face](/images/face.jpg) ![Cropped](/images/crop.jpg)
 
 # Front end
 
