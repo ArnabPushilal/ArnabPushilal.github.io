@@ -39,7 +39,7 @@ depending on the user input of the image.
 
 
 
-<img src="/images/og.jpg" alt="Lights"  width="250" height="250">
+<img src="/images/og.jpg" alt="Lights"  width="300" height="300">
 
 <p>Original Image</p>
            
@@ -47,7 +47,7 @@ depending on the user input of the image.
            
 <p>Detected facial features</p>
 
-<img src="/images/crop.jpg" alt="Fjords"  width="200" height="200">
+<img src="/images/crop.jpg" alt="Fjords"  width="300" height="300">
             
 <p>Cropped Image</p>
         
@@ -98,6 +98,7 @@ The idea was to store data continously and update the model as time goes by. (Ho
 
 # Deployment
 
+The app was 
 
 
 
