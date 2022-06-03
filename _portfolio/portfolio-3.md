@@ -55,13 +55,12 @@ depending on the user input of the image.
         
 # Front end
 
-The application had a very simple front-end interface. One base HTML file with a navbar where "home"
-redirects to the home page & "example images" Shows some example images from a test set where the model has already had decent results.
-
+The application had a very simple front-end interface. There is a base HTML file with a navbar where "home" redirects to the home page & "example images" shows some example images from a test set where the model has already had decent results.
+The rest of the files: form.html, predictions.html & example.html are started off with the base template
 ## Form page
 
 <img src='/images/formpage.png' title="Form page">
-
+<p>Form Page</p>
 
 The form given to the user consists of four entries. Validations were done for each of fields
 
@@ -74,7 +73,30 @@ as follows.
 Additionally, if no faces were detected on the face detector model, it won't move past this 
 with another error message.
 
+## Predict Page
 
+<img src='/images/predict.png' title="predict">
+<p>Predict Page</p>
+
+The predict page consists of the image that the user uploaded along with the predicted age &
+the true age that they inputed with the error.
+
+
+# Storage
+
+If the user checks the data saved box, then the data is stored in a table 
+called "Images" where the following fields are saved:
+
+1. first_name
+2. true_age
+3. predicted_age
+4. img_filename 
+5. img_data  
+
+The idea was to store data continously and update the model as time goes by. (However this wasn't possible because Heroku did not support SQLite, maybe in the future I could update this)
+
+
+# Deployment
 
 
 
