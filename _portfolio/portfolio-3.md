@@ -42,7 +42,7 @@ depending on the user input of the image.
         <div class="col-md-4">
           <div class="thumbnail">
            
-              <img src="/images/og.jpg" alt="Lights"  width="50" height="50">
+              <img src="/images/og.jpg" alt="Lights"  width="5" height="5">
               <div class="caption">
                 <p>Original Image</p>
               </div>
@@ -52,7 +52,7 @@ depending on the user input of the image.
         <div class="col-md-4">
           <div class="thumbnail">
             
-              <img src="/images/face.png" alt="Nature"  width="50" height="50">
+              <img src="/images/face.png" alt="Nature"  width="5" height="5">
               <div class="caption">
                 <p>Detected facial features</p>
               </div>
@@ -62,7 +62,7 @@ depending on the user input of the image.
         <div class="col-md-4">
           <div class="thumbnail">
             
-              <img src="/images/crop.jpg" alt="Fjords"  width="50" height="50">
+              <img src="/images/crop.jpg" alt="Fjords"  width="5" height="5">
               <div class="caption">
                 <p>Cropped Image</p>
               </div>
