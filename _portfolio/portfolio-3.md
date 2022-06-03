@@ -39,15 +39,15 @@ depending on the user input of the image.
 
 
 
-<img src="/images/og.jpg" alt="Lights"  width="50" height="50">
+<img src="/images/og.jpg" alt="Lights"  width="150" height="150">
 
 <p>Original Image</p>
            
-<img src="/images/face.png" alt="Nature"  width="50" height="50">
+<img src="/images/face.png" alt="Nature"  width="100" height="100">
            
 <p>Detected facial features</p>
 
-<img src="/images/crop.jpg" alt="Fjords"  width="50" height="50">
+<img src="/images/crop.jpg" alt="Fjords"  width="75" height="75">
             
 <p>Cropped Image</p>
         
