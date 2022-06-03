@@ -38,36 +38,21 @@ depending on the user input of the image.
 
 
 
-<div class="row">
-        <div class="col-md-4">
-          <div class="thumbnail">
+
+<img src="/images/og.jpg" alt="Lights"  width="30" height="30">
+
+<p>Original Image</p>
            
-              <img src="/images/og.jpg" alt="Lights"  width="30" height="30">
-              <div class="caption">
-                <p>Original Image</p>
-              </div>
+<img src="/images/face.png" alt="Nature"  width="30" height="30">
            
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="thumbnail">
+<p>Detected facial features</p>
+
+<img src="/images/crop.jpg" alt="Fjords"  width="30" height="30">
             
-              <img src="/images/face.png" alt="Nature"  width="30" height="30">
-              <div class="caption">
-                <p>Detected facial features</p>
-              </div>
-          
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="thumbnail">
+<p>Cropped Image</p>
+        
             
-              <img src="/images/crop.jpg" alt="Fjords"  width="30" height="30">
-              <div class="caption">
-                <p>Cropped Image</p>
-              </div>
-            
-          </div>
+        
 # Front end
 
 The application had a very simple front-end interface. One base HTML file with a navbar where "home"
