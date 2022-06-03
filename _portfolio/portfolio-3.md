@@ -21,11 +21,35 @@ Example Image from the training set (Age: 32). <img src='/images/32.png'>
 
 
 
-### Age Prediction Model
+### Prediction Model
 
 The model was based on the encoder of a VGG network. Each convolutional layer consists of a conv2d --batchnorm--relu. The feature dimensions are downsampled using maxpooling and finally two fully connected networks generated the predicted age. An MSE loss was used and the model was trained with a learning rate of 1e-4 and a batch size of 12. The model was then saved to be used at test time 
 depending on the user input of the image.
 
-### 
+### Front end
+
+The application had a very simple front-end interface. One base HTML file with a navbar where "home"
+redirects to the home page & "example images" Shows some example images from a test set where the model has already had decent results.
+
+## Form page
+
+<img src='/images/formpage.png'>
+
+The form given to the user consists of four entries. Validations were done for each of fields
+as follows.
+1. Real Age: Enforced between 0 and 120, cannot be left blank.
+2. First Name: Must be more than 1 character
+3. Image: Must have 3 channels and cannot be empty
+4. Data Save Box: If yes, data will be stored and collected
+
+
+
+
+
+
+
+
+
+
 
 
