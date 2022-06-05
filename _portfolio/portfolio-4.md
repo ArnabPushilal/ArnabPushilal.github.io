@@ -1,6 +1,6 @@
 ---
 title: "Predicting popularity for songs on spotify"
-excerpt: "<br/><img src='/images/spot.png' width="100" height="100>"
+excerpt: "<br/><img src='/images/spot.png' width="100" height="100">"
 collection: portfolio
 ---
 

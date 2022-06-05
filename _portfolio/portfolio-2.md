@@ -1,6 +1,6 @@
 ---
 title: "Multi-Task Learning for Image segmentation using attention and other aux-tasks"
-excerpt: "<br/><img src='/images/MTAN.jpeg' width="100" height="100>"
+excerpt: "<br/><img src='/images/MTAN.jpeg' width="100" height="100">"
 collection: portfolio
 ---
 

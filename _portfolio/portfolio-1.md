@@ -1,6 +1,6 @@
 ---
 title: "What's my age again?"
-excerpt: "Web-app for age prediction<br/><img src='/images/formpage.png' width="100" height="100 >"
+excerpt: "Web-app for age prediction<br/><img src='/images/formpage.png' width="100" height="100" >"
 collection: portfolio
 ---
 
