@@ -36,4 +36,4 @@ My undergraduate studies provided a solid foundation for growth in the field of 
     <img src="/images/ucl.png" class="center" width="100" height="100" >
 </p>
 
-I decided to join UCL to pursue an MSc in Data Science & ML in the September'2022 cohort. Before joining, I had been extensively preparing to make sure I was capable enough to sucessfully taking advantage of the degree. The content of the degree was challenging and exactly what I had wanted in a master's degree. We had a good mix of theoritical & practical modules that allowed me to learn something new, and implement it to truly solidify my understasnding. 
+I decided to join UCL to pursue an MSc in Data Science & ML in the September'2022 cohort. Before joining, I had been extensively preparing to make sure I was capable enough to sucessfully taking advantage of the degree. The content of the degree was challenging and exactly what I had wanted in a master's degree. We had a good mix of theoritical & practical modules that allowed me to learn something new, and implement it to truly solidify my understanding. 
