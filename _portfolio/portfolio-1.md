@@ -1,6 +1,6 @@
 ---
-title: "Project-1"
-excerpt: "Automatic Neutralization of Sexist language<br/><img src='/images/flowshabri.png'>"
+title: "Automatic Neutralization of Sexist language"
+excerpt: <br/><img src='/images/flowshabri.png'>"
 collection: portfolio
 ---
 

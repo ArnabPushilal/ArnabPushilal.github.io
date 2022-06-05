@@ -1,6 +1,6 @@
 ---
-title: "Project-3"
-excerpt: "What's my age again?<br/><img src='/images/formpage.png' >"
+title: "What's my age again?"
+excerpt: "Web-app for age prediction<br/><img src='/images/formpage.png' >"
 collection: portfolio
 ---
 

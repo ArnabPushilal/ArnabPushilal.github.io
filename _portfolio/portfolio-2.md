@@ -1,6 +1,6 @@
 ---
-title: "Project-2"
-excerpt: "Predicting popularity for songs on spotify<br/><img src='/images/spot.png'>"
+title: "Predicting popularity for songs on spotify"
+excerpt: "<br/><img src='/images/spot.png'>"
 collection: portfolio
 ---
 
