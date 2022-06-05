@@ -1,5 +1,5 @@
 ---
-title: "Project-1"
+title: "Project-4"
 excerpt: "Multi-Task Learning for Image
 Segmentation using soft-attention blocks and
 self-supervised auxiliary tasks"<br/><img src='/images/MTAN.jpeg'>"
