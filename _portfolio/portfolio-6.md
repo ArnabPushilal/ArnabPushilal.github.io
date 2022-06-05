@@ -1,6 +1,6 @@
 ---
 title: "Stock Prediction- Hero MotoCorp"
-excerpt: "<br/><img src='/images/StockData.jpg' width="100" height="100">"
+excerpt: "<br/><img src='/images/StockData.jpg' >"
 collection: portfolio
 ---
 

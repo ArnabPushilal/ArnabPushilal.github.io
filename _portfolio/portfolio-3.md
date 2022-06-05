@@ -1,6 +1,6 @@
 ---
 title: "Automatic Neutralization of Sexist language"
-excerpt: <br/><img src='/images/flowshabri.png' width="100" height="100">"
+excerpt: <br/><img src='/images/flowshabri.png'>"
 collection: portfolio
 ---
 
