@@ -1,234 +1,97 @@
 ---
-title: "Predicting popularity for songs on spotify"
-excerpt: "<br/><img src='/images/spot.png'>"
+title: "Automatic Neutralization of Sexist language"
+excerpt: <br/><img src='/images/flowshabri.png'>"
 collection: portfolio
 ---
 
-For the code check out this [link](https://github.com/ArnabPushilal/SpotifyPopularityPrediction).
 
-## Motivation
-Just in the past year I had released 2 songs on spotify. As far as marketing went I felt it just bounced around my friends and back. As I forayed into Data Science, I realized that Spotify analyzes each track & assigns it a score.  So what my main motive was to see if my song 'lacked' in some elements according to spotify. To do this I wanted to create a model which would predict the popularity score assigned by spotify for an unknown track.
 
-## Data Collection
-I collected the data using the spotipy library built around the spotify API
+## Abstract
 
-I intially queried the song's by year  & maximum items returned per call was 50, but you could offset the index of the first result which helps you get more than 50( This allowed a max of 2000 per year) . To make things interesting I collected samples from 1980 - 2020 ( ~80000 data points).The other function I defined was to collect audio features by spotify for each track based on the track id. 
+Sexism is very common online. Therefore, it is essential to effectively detect and neutralise sexist language to create a safe and inclusive online environment. A model to neutralise sexist language may act as a filter that neutralises sexist statements online. In this study, we built on the work of [Pryzant2020AutomaticallyNS](https://www.semanticscholar.org/paper/Automatically-Neutralizing-Subjective-Bias-in-Text-Pryzant-Martinez/16981cc4ddefd3ea7655754fd83a2a8ff2203a8b), who created a model to neutralise biased language on Wikipedia. We fine-tuned this model using the "Call Me Sexist" dataset [Samory2021CallMS](https://ojs.aaai.org/index.php/ICWSM/article/view/18085), consisting of sexist tweets and their neutralised pairs. We present a new version of this dataset, with 2,405 manually neutralised tweets. We also presented two new automatic evaluation methods; sentence embeddings and the use of a sexism classification model. In addition, we proposed an automated training data augmentation pipeline to improve our model further. Fine-tuning the model with the new dataset resulted in high quality and coherent sentences as per human evaluation, and 72% of the predicted sentences were classified as not sexist by automatic evaluation. 
 
-* https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/ ( end point for audio features )
-* https://spotipy.readthedocs.io/en/2.14.0/ ( spotipy library )
+## Code and Report
 
-## Data Description + Intial thoughts
+For further details of the results please see our report [here](https://github.com/ArnabPushilal/NLPreport/blob/master/NLP_report.pdf) and for the code please visit the repo [here](https://github.com/ArnabPushilal/NLPreport/blob/master/NLP_report.pdf).
 
-### Description of the Data Collected ( according to spotify docs) :
 
-|Attribute |Description| Type |
-|--- | --- | --- |
-|1 - Acousticness (float) | A confidence measure from 0.0 to 1.0 of whether the track is acoustic.| Numerical|
-|2 - Danceability (float)| Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.| Numerical |
-|3 - duration_ms (int)| Duration of the track in ms|Numerical|
-|4 - energy (float)| Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy.|Numerical|
-|5 - instrumentalness (float) | Predicts whether a track contains no vocals. “Ooh” and “aah” sounds are treated as instrumental in this context. |Numerical|
-|6 - key (int)| The estimated overall key of the track. 0 represents C. 1 C# and so on.| Categorical |
-|7 - liveness (float)|Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live.|Numerical|
-|8 - loudness| The overall loudness of a track in decibels (dB) |Numerical|
-|9 - mode (int)| Mode indicates the modality (major or minor) of a track, the type of scale from which its melodic content is derived.|Categorical |
-|10 - speechiness |(float)  Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value.|Numerical|
-|11 - tempo (int)| The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration. |Numerical|
-|12 - time signature (int)|  An estimated overall time signature of a track.| Categorical |
-|13 - valence (float) |  A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).| Numerical| 
+## Hypothesis
 
-*Apart from this I added another data point *'Numer of Markets'* the song was released in. Country wise list was available from the 'search' end point. So i just calculated the no of elements in the list to get the new feature
+In this study, we investigated the following hypotheses:
 
-As a musician some of the data points already made sense to me. For instance the 'key' , 'mode' ,'time signature' , ' tempo' are familiar terms. Now some of the abstract and insteresting terms are 'valence' , 'instrumentalness' , 'energy' ,'Danceablity' are kind of vague. It will be interesting to see if these features are contributing to overall popularity. Since we have no way of physically changing the 'valence' as we do for the 'key' of the song.
+1. The baseline model created by [Pryzant2020AutomaticallyNS](https://www.semanticscholar.org/paper/Automatically-Neutralizing-Subjective-Bias-in-Text-Pryzant-Martinez/16981cc4ddefd3ea7655754fd83a2a8ff2203a8b) can neutralise sexist language as it has been trained on data with demographic bias.
+2. The baseline model can be improved by fine-tuning a dataset of sexist examples with their respective neutralisations. 
+3. An automatic data augmentation pipeline can be built to create additional training data to improve the fine-tuned model.
+4. item Neutralised sentences can be automatically evaluated without human intervention.
 
-# EDA
 
-First things first, I can see a direct correlation with Year of Release and Popularity. 
+### Model <img src='/images/modelarch.png'>
 
-## Mean of Popularity of songs Per year
+The model used in this study was developed by [Pryzant2020AutomaticallyNS](https://www.semanticscholar.org/paper/Automatically-Neutralizing-Subjective-Bias-in-Text-Pryzant-Martinez/16981cc4ddefd3ea7655754fd83a2a8ff2203a8b). The modular model is comprised of two models; a tagger model, which uses BERT  to classify words as biased and a debiaser model, which is an LSTM (Long Short-Term Memory) based model to edit the text. Each of these models was pretrained separately and subsequently combined. The training data used was the WNC. The data included text with demographic bias (data with pre-conceived notions about particular genders and demographic categories). Therefore, we hypothesised that this model would work well for sexism neutralisation.
 
-![Year Vs Average PopularityScore](/images/Year_vs_AvgPopScore.png)
 
-* We can see there is a direct correlation between a song's popularity & the year of release. 
-* Initially I was about to dump all the data into one model, then I thought it would be prudent of me to *make the model decade-wise*. Since all the new test data can't really be from the past. 
-* For 2020 there is a drop in average & 605 Null values were there. This goes to suggest that there is probably a mimimum threshold of time that a song needs to be on spotify for the PopularityScore to be calculated. For this purpose I will ignore the songs of 2020.
-* It would also be interesting to see the how different are the features for the songs in each decade & how they correlate with each other. 
+### New Dataset
 
+A new dataset was prepared for this task by manually editing the "Call me Sexist" Dataset ( due to existing biases in the dataset ) and an additional workplace sexism dataset.
 
-## Univariate plots
+### Procedure
 
-### 2000s
-![](/images/Univariate_00s.png)
+### Baseline Model
 
-### 1980s
-<img src="/images/Univariate_80s.png" width="1000" height="400">
+ A pretrained modular model checkpoint trained on the WNC by  [Pryzant2020AutomaticallyNS](https://www.semanticscholar.org/paper/Automatically-Neutralizing-Subjective-Bias-in-Text-Pryzant-Martinez/16981cc4ddefd3ea7655754fd83a2a8ff2203a8b) served as the baseline for our experiments. Inference was run directly on the model with our test sets.
 
-* Distributions of 'acousticness', 'speechiness' , 'energy ', 'instrumentalness' seems to be skewed. I will probably have to try the box-cox trasnformation for some of the variables. 
-* In categorical variables 'key' of 4/4 is the most common 
+### Fine tuning the pretrained model
 
-## Bivariate plots
+ Using the baseline as a starting checkpoint, the tagger and debiaser models were jointly trained on the modified "Call Me Sexist" dataset. This model, called checkpoint-1, was stored and evaluated as a benchmark.
 
-* I transformed PopularityScore into 'Popular' & 'Not Popular' *by percentile for each decade*. Using qcut , I divided the data into 10 quantines and then took the 10th quantile as Popular & rest as not Popular. I tried out lesser divisions of quantiles (top 25th percentile, top 20th percentile) but that didn't work out well since I felt that the score was not high enough for the top 25th percentile to classify it as popular (it was 44 for the 80s). I didn't go beyond 10 quantiles to make sure *my classes are not too imbalanced.
+### Data augmentation
 
-(Plots are Prior to log transformation)
+ Using checkpoint-1, inference was carried out on the "Workplace Sexism" dataset along with the unneutralised 1,305 pairs from the "Call me Sexist" dataset. The predicted sequences were then used as the gold sequences for further fine-tuning to try and improve our current model. 
+ A perplexity score was calculated for each prediction to find good neutralisations. A low perplexity score is indicative of a coherent sentence based on a language model.
+ The predictions were run through a pretrained GPT2-large model from hugging face with a sliding window to calculate the log-likelihood. Then, the sentences with the highest perplexities were removed. In this case, sentences in the top 40th percentile of perplexities were filtered out.  
 
-### 1980s pairplot 
-![](/images/80s.png)
+ Additionally, Perspective API was used to calculate a toxicity score for each of the sentences. This API uses Machine Learning to calculate a percentage for the toxicity score, which indicates how "toxic" a sentence may be perceived. Sentences with a toxicity of over 50% were removed.
 
-* For single variables distributions of 'PopQuant 0 & 1' look very similar. This is not good.
-* Loudness looks like it has a slightly different mean for 0 & 1
-* By virtue of linear separability we can the data can be seaparated by loudness & dancebility / loudness & valence.
-* We can see some variables which are linearly correlated, which I guess would be more clear with correlation heatmap
+### Fine-tuned model with augmented data
+ The model loaded from checkpoint-1 was further fine-tuned with the filtered augmented data. 
 
-### 2010s pairplot
-![](/images/PairPlot.png)
+### Evaluation
 
-* Danceability seems to have a distribution which is different for 0s & 1s
-* Instrumentalness plot has a lot of noise
+Following our models were firstly evaluated using a BLEU score and true hits (true hits is a scale of how many gold sentences exactly matched our predictions). However, we felt that this was an inadequate representation of the difference in the quality of neutralisations between models. To align with human evaluation, we designed two metrics that reflected the performance improvement. All quantitative results were reported with the mean of the three test sets and a range of two standard deviations.
 
 
-## Correlation Heat Map Year-wise
+### Sexism Classification Model 
+A linear Support Vector Machine (SVM) was trained on the cleaned "Call me Sexist" dataset, using the term-frequency inverse document frequency (tf-idf) of the sentences as features and "sexist or non-sexist" as labels. On a test set, the accuracy of the classifier was approximately 86\%. Passing the generated sentences through this classifier returns a quantitative idea of the number of sentences in the test set that are not sexist after neutralisation. Unlike human evaluation, we could calculate this number over multiple test sets in a time-efficient manner.  
 
-### 1980s
+### Sentence Embedding
+ Another form of evaluation was conducted using embeddings of the sequences using a pretrained sentence transformer. We used hugging face's "distilroberta-v1" model to map the sentences into sentence vectors of size 768. We calculated two sets of embeddings; a gold embedding matrix consisting of all the manually neutralised gold sentences and a predictions embedding matrix containing the embeddings of our generated sentences from any model. The closer the embeddings of the generated sequences of a model were to the embeddings of the gold sequences, the better the performance of that particular model was. This ensured that this metric could quantify similarity without human intervention, even if the neutralised sentences were not identical to the gold sequences, just as long as they had a similar meaning.
 
-![](/images/HeatMap_80s%20(1).png)
 
-### 1990s
+### Results and Analysis
 
-![](/images/HeatMap_90s%20(1).png)
+<img src='/images/resultsnlp.png'>
+<img src='/images/table1.png'>
+<img src='/images/table2.png'>
 
-### 2000s
+#### Baseline Model
 
-![](/images/HeatMap_00s%20(1).png)
+We first analysed the results of the baseline model. The qualitative results revealed that the model neutralised sentences in two main ways. In some cases, references to gender were removed; for example, the word "woman" was removed, as seen in rows 1c and 4c of Table 5. We hypothesised that this was because the expert features included the word "woman". Therefore the word was treated as a biased word and was removed by the model. In other cases, the word "claim" was added to neutralise a definitive opinion, for example neutralising "women must prove they are as good as men" (Table 5, 5a) into "women claim to prove they are as good as men" (Table 5, 5c). The baseline model was trained to do this as sentences that expressed opinions were not classed as neutral. The quantitative results corroborated this observation. The non-sexist classification results were moderately high - around 0.65 (refer Tables 3 and 4). This was because the neutralised sentences without the word "women" were often classified as not sexist. The neutralisation score (Table 4) reflects the actual results better as the neutralisations were of low quality, and the score for the baseline model was just 0.0149.
+There were many examples with missing words (Table 5, rows 1c and 4c) and repeated words, which is reflected in a low fluency score of 0.317 (Table 4). The baseline had a high BLEU score of 66.6. However, we were unhappy with the quality of the neutralisations because of both the quantitative metrics (fluency, true hits, neutralisation score and classifier score - refer Tables 3 and 4) and the qualitative evaluation (a subset of this is shown in Table 5).
 
-### 2010s
+#### Fine-tuned model
 
-![](/images/HeatMap_10s%20(1).png)
+The baseline model was fine-tuned using sexist examples after running it. When looking at the qualitative results of the fine-tuned model, we can observe that the model appeared to neutralise sentences well. Some examples are shown in Table 5, rows 1d, 3d and 4d. 
+Particularly example 1d was interesting as the model was able to change the input sentence to express an equality. 
+In addition, the model had an excellent ability to choose which references to gender needed to be neutralised. For instance, in Table 5, row 4d, "women" has been changed to "parents" to reflect that the bias in this sentence was towards female parents. This is in contrast to rows 1d and 3d. Instead of changing both "women" and "men" into a gender-neutral term and changing the sentence's meaning, the model has neutralised the sentence by equating women and men. The fine-tuned model is better than the baseline because it has a higher true hits score (0.105), embedding score (0.82), classifier score (0.72), fluency (0.697) and neutralisation score (0.473) (Tables 3 and 4). 
 
-* No single variable has good linear correlation with 'PopQuant' which goes to *show a linear model won't do really well.
+##### Augmented data model
 
-* 'Energy & Loudness' are correlated heavily, will probably get rid of one of the variables
+Subsequently, the model was further fine-tuned using the augmented data. Analysing the results of the augmented data model showed that the additional fine-tuning did not improve the neutralisations. The qualitative results revealed repeated words and many gendered words that were changed. This meant that the sentence lost meaning or context. Some examples of this are listed in Table 5, rows 1e and 4e. As many gendered words were removed, the sentences were no longer classed as sexist. This resulted in the highest non-sexist classification across models, both by human evaluation with a score of 0.851 (Table 4) and using an SVM classifier, with a score of 0.93 (Table 3). However, this does not mean that the model was better, as reflected in reduced fluency (0.22, Table 4) and neutralisation score (0.0134, Table 4). This showed the lack of coherence in the predicted sentences. The sentence embedding was also the lowest across models (0.72, Table 3), showing that the predictions greatly differed from the golds. 
+The fine-tuned model was seen to be the best model, as shown by the highest sentence embedding score (0.82, Table 3), fluency (0.697, Table 4), neutralisation score (0.473, Table 4) and true hits (0.105, Table 3). 
 
-* Interestingly 'danceability' & 'PopQuant' has better correlation in the 10s than any other decade
+#### Evaluation metrics
 
-* Similary 'loudness' & 'danceability' also have increasing correlation along the decades. I guess louder is more danceable in the present
+When analysing the evaluation methods for this use case, we found that BLEU was not the best metric for evaluation as it heavily relies on the exact similarity to the gold sentence. The sentence embedding overcame this by understanding whether the predicted sentence is similar to the gold (even if it was not an exact match). This is illustrated when calculating the BLEU score and sentence embedding for examples 5b and 5d (Table 5). These sentences are similar in context, and the BLEU score obtained was 60 (this is a good score). However, we needed a metric to ensure that such sentences received the highest score possible. The sentence embedding score was 0.9, revealing that this metric can capture similar contexts even with multiple edits between the gold and predicted sentences. However, the sentence embedding is reliant on the gold sentence. 
+The non-sexist classifier scores (Tables 3 and 4) overcome this as they only use the predicted sentences. We also found that human classification (Table 4) had similar results to the SVM classifier (Table 3).
+Furthermore, the classification metrics are limited because predicted outputs will not be classified as sexist if they do not contain gendered words.  However, this may not be a correct neutralisation. An example of this is seen in Table 5, where row 1e is not sexist but loses the input sentence's context and meaning in 1a. Therefore, fluency and neutralisation score metrics (Table 4) were used to reflect the coherence and quality of the predicted neutralisation. To conclude, we believe that a combination of the mentioned metrics are needed to evaluate an automatic neutralisation model.  
 
-## One-way ANOVA for Numerical variables[between groups PopQuant==0 & PopQuant ==1  post log transformation ]
-
-
-### 2010s
-
-|Attribute|danceability|	energy|	loudness|	valence	|liveness|	tempo|	acousticness|	duration_ms|	instrumentalness|
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|f|	2.834747e+02	|21.794906|	4.106700e+01	|4.115331|	2.621190e+01	|3.026575|	0.003671|	6.730923e+01	|8.145750e+01|
-|pValue|	3.578425e-63|	0.000003	|1.503817e-10|	0.042509|	3.087683e-07	|0.081926|	0.951685|	2.459964e-16|	1.949095e-19|
-
-
-*  Danceability in the as clear in the pairplot has a different mean for each distribution , but so does loudness , liveliness & valence(p value & f value leading to reject in null hypothesis) . This could be due to the fact that my distributions aren't exactly normal even afer the transformation. 
-
-* Perhaphs the a non parametric test like Kruskals would have been a better choice.
-
-# Classification [ 2010s DataSet ]
-
-## Logsitic Regression
-
-* I made a param grid consisiing of the different solvers & C values ( inverse of regularization ) and then applied a simple grid search approach to find the best model. 
-* To select the metric I thought the AUC of the ROC would be better since, If I chose a normal accuracy metric you would get a high score even when you predict all 0s since I have explicitly chosen a 1/10 ratio for Popular & Not popular.
-
-* I used class weight = 'balanced' to help with the imblance problem I have.
-
-### ROC  
-* logistic : test ROC AUC=0.704
-* logistic :train ROC AUC=0.713
-![](/images/ROC_logistic.png)
-
-
-### Confusion Matrix for Logistic Regression
-
-| Class     |  precision   | recall | f1-score |  support|
-| --- | --- | --- | --- | --- |
-|0     |  0.95     | 0.66  |    0.77  |    3613|
-|1      | 0.17  |    0.65   |   0.27    |   387|
-
-
-* So  it looks like my model is getting a lot of false positives for the 'Popular' class. This is expected as using class weight='balanced' you tend to get more false alerts.
-
-### Feature Importance with this model
-
-![](/images/feature_imp_2.png)
-
-* Most important features contributing to 'Popularity - 1' seems to be loudness , danceability & NoOfmarkets. 
- .
-## Random Forest Classifier
-
-
-* For Random Forest I did a random search on the hyperparameters.
-
-### ROC
-
-* Random : test ROC AUC=0.729
-* Random :train ROC AUC=1.000
-![](/images/ROC_Random%20(2).png)
- 
-* The model turned out to be completely overfitting on the training data & not as good on the test data.
-
-# Regression [2010s DataSet]
-
-## Random Forest Regressor
-
-* Similar to classification, a random-search + cv was performed on the RandomForest Regression Model
-
-### Metrics
-
-|Data |Mean Absolute Error (MAE) | Mean Squared Error (MSE)| Root Mean Squared Error (RMSE) |Mean Absolute Percentage Error| Accuracy|
-| --- | --- | --- | --- | --- | --- |
-|Train |2.3380337756197442| 8.5386173504373 |2.922091263194444| 3.9 | 96.1|
-|Test | 6.422792491484789 |63.37485329803256| 7.960832450066548| 10.64 |89.36|
-
-* MAPE is about 10.6% & Absolute Error is 6.4422 for test data. But alas MSE is very high , which means plenty of outliers probably. 
-
-### Output Distribution vs Actual Distribution
-### Train Data 
-
-![](/images/Actual%20vs%20Fitted%20Values%20for%20Popularity_train_rf%20(2).png)
-* Train data seems to be following the distribution pretty well.
-
-### Test Data
-![](/images/Actual%20vs%20Fitted%20Values%20for%20Popularity%20_test_rf.png)
-* Although means seems about the same, std-dev has gone up. Extremely high / low predictions may be very error prone. ( High MSE )
-* Training data is clearly being overfit, this is similar to the classifier!
-
-### Feature Importance according to this model
-
-![](/feature_imp.png)
-
-* It looks like the model can't distinguish between the features too well, but nevertheless 'danceability' & 'No of Market' has high importance
-* Intrestingly, the controllable musical features like 'key' ,'mode','time signature' is contributing the least! Therefore , I will probably have to dig deeper into how spotify calculates features like 'danceability', 'acousticness'
-
-## Ridge Regression with polynomial features 
-
-* Although polynomial trends weren't clear in the EDA, I wanted to try it out.
-* It makes sense to use Ridge Regression to penalize higher coefficients.
-* So I made a grid up of alpha from 0.1 - 1000 & degrees 1,2,3 to see it could trump the random forest model.
-
-|Data |Mean Absolute Error (MAE) | Mean Squared Error (MSE)| Root Mean Squared Error (RMSE) |Mean Absolute Percentage Error| Accuracy|
-| --- | --- | --- | --- | --- | --- |
-|Train |6.66623249851526| 62.309629632070724| 7.893644888900863| 10.53| 89.47|
-|Test | 6.463273484157742 |64.66623249851526| 8.041531725891234| 10.75 |89.25|
-
-
-# My own song
-
-| Track_Name | Valence | Danceability | loudness | duration_ms |instrumentalness | key | liveness |time_signature |energy | track_id | NoOfMarkets|
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Far Away |  0.289 | 0.653 | -15.519 |181680 | 0.404|7 |  0.108|4 |0.332 |0y2Ga0Au2NZaRuIGEAiwTQ | 89 |
-
-* If you go back to the univariate distributions the only thing which I can see improve is 'danceability'. Other factors don't seem to matter as much. That makes sense too , who cares what key or time signature you are in. 
-
-
-# Further Work
-
-* A lot more things probability go into popularity. We can try and add features from artist's social media- activity, no of followers, likes -etc
-* Feature Engineering could be done to help the model
-* Compare songs with high danceability scores in order to understand what the feature exactly mean
-* Compare each decade and see what features are important in each decade

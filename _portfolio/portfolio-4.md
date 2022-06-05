@@ -36,3 +36,8 @@ Cross-entropy was used for the loss of both segmentation & classification and me
 $L_{total}  = \alpha_{1} L_{seg} + \alpha_{2} L_{cls} + \alpha_{3} L_{bbox}$ 
 
 where $\alpha_{1} ,\alpha_{2} ,\alpha_{3}$ were chosen as hyper-parameters instead of being determined based on the rate of change of the losses. This was done with respect the scale of the losses and with keeping in mind the improvement of the target task.
+
+### Auxillary tasks
+
+Three auxiliary tasks were implemented on the above-mentioned MTAN architecture. The three auxiliary tasks tackled were the colourisation of grayscale images, the detection of edges in colour images (Canny filter) and the removal of normally distributed noise from an image
+
