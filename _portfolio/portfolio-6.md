@@ -1,49 +1,45 @@
 ---
 title: "Stock Prediction- Hero MotoCorp"
-excerpt: "<br/><img src='/images/MTAN.jpeg'>"
+excerpt: "<br/><img src='/images/StockData.jpg'>"
 collection: portfolio
 ---
 
 ## Motivation 
-I wanted to explore time-series data predction from the stock prices of the company I work in.
-
-![](/images/StockData.jpg)
-
+I wanted to explore time-series data predction from the stock prices of the company I used to work in.
 It's about 20 years of data, I chose the closing price for prediction.
 
 ## Moving Average
 
- ### Moving Average + Window
+### Moving Average + Window
  ![](/images/MovingAvg.jpg)
  
  We can see this just smoothenes out the data, large errors are still present
  
- ###  Difference series to account for periodic data
+###  Difference series to account for periodic data
  ![](/images/DifferenceSeries.jpg)
  
  * Some data might be dependant on Quarter results, so I chose a period of 90 days to see if it improved my model.
- ### Moving Average + Difference 
+### Moving Average + Difference 
  ![](/images/MovingAvgpluspast.jpg)
  
- ### Moving Average + Difference + Smoothening
+### Moving Average + Difference + Smoothening
  ![](/images/MovingAvgSmooth.jpg)
  
- ## DNN
+## DNN
  ![](/images/DenseNetwork.jpg)
  
  
- ## LSTM
+## LSTM
  
-  ### Picking LearningRate
+### Picking LearningRate
   
- ![](/images/LearningRate%20(2).jpg)
+![](/images/LearningRate%20(2).jpg)
    
  
- 
-  ### Prediction
-  ![](/main/images/LSTM.jpg)
+### Prediction
+![](/main/images/LSTM.jpg)
 
- ## Final Accuracy Table
+## Final Accuracy Table
   
  |Model |MSE| MAE |
 |--- | --- | --- |
