@@ -1,5 +1,5 @@
 ---
-title: "Project-1"
+title: "Project-2"
 excerpt: "Predicting popularity for songs on spotify<br/><img src='/images/spot.png'>"
 collection: portfolio
 ---
