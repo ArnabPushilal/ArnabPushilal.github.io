@@ -1,43 +1,110 @@
 ---
-title: "Multi-Task Learning for Image segmentation using attention and other aux-tasks"
-excerpt: "<br/><img src='/images/MTAN.jpeg'>"
+title: "What's my age again?"
+excerpt: "Web-app for age prediction<br/><img src='/images/formpage.png' >"
 collection: portfolio
 ---
 
+# Goal
 
-## Code and Report
+My goal was to create a web app where you could upload an image with your face in it. And the app
+should return a predicted age. 
 
-For more details please view the detailed report [here](https://github.com/ArnabPushilal/MLT/blob/main/report%20(2).pdf).
+# Code
 
-The code can be found [here](https://github.com/ArnabPushilal/MLT)
+All the code and required information to run can be found at this [link](https://github.com/ArnabPushilal/whatsyourage)
 
-## Abstract
+## Stack Used
 
-In this study, the effectiveness of different MTL architectures was explored, by first only evaluating a baseline inspired on the Segnet architecture; then modifying the baseline to implement MTL framework with two additional tasks (image classfication and bounding-boxes prediction); and finally by fine-tuning the MTL network using pre-trained weights from VGG-16 trained on ImageNet . Furthermore, inspired by the success of attention approaches in computer vision, a more recent and novel MTL network that includes task specific attention modules was investigated. This network is called Multi-Task Attention Network. 
+Python, SQLAchemy, Flask, HTML, Docker, Pytorch
 
-Finally, auxiliary tasks of image denoising, edge detection and image colourisation were implemented. For all of them, self-supervision strategies were used to create the ground-truth labels. The outlook of this research was to investigate the effect of parameter sharing on the effectiveness of learning, the effect of self-supervision on the model's performance and the effectiveness of fine-tuning in the context of simultaneous MTL. We also explored methods of combination of losses to improve our model.
+## Dataset 
+
+To train the initial model the UTKFACE dataset was used [link](https://susanqq.github.io/UTKFace/). This consists of 20K+ images with assosiated ages. I used the ones where the faces are already detected and cropped. This was a consicious decision, since I planned to perform some sort of face detection on the image before the age detection.  
+
+# Prediction Model
+
+## Face detector
+
+Prior to testing the image on the model, a facedetector from mediapipe is used to return bounding
+box co-ordinates for the face detected. The faces are cropped out and the cropped face is used for testing.
+
+<img src="/images/og.jpg" alt="Lights"  width="300" height="300">
+
+<p>Figure: Original Image</p>
+           
+<img src="/images/face.png" alt="Nature"  width="300" height="300">
+           
+<p>Figure: Detected facial features</p>
+
+<img src="/images/crop.jpg" alt="Fjords"  width="300" height="300">
+            
+<p>Figure: Cropped Image</p>
+        
+            
 
 
-## SegNet
+## Age Predictions
+
+The model was based on the encoder of a VGG network. Each convolutional layer consists of a conv2d --batchnorm--relu. The feature dimensions are downsampled using maxpooling and finally two fully connected networks generated the predicted age. An MSE loss was used and the model was trained with a learning rate of 1e-4 and a batch size of 12. The model was then saved to be used at test time 
+depending on the user input of the image.
 
 
-<img src='/images/Segnet.jpeg'>
+        
+# Front end
 
-In this empirical study, a Segnet model was implemented as the baseline for image segmentation. This model is an encoder-decoder network for image segmentation, topologically inherited from a VGG-16 architecture. Initially, Segnet was used only for the single target task of segmentation. Then, an MTL architecture was implemented by adding two layers at the end of the Segnet encoder, in order to perform binary classification and bounding box regression.
+The application had a very simple front-end interface. There is a base HTML file with a navbar where "home" redirects to the home page & "example images" shows some example images from a test set where the model has already had decent results.
+The rest of the files: form.html, predictions.html & example.html are started off with the base template
+## Form page
 
-## MTAN
+<img src='/images/formpage.png' title="Form page">
+<p>Figure: Form Page</p>
 
-Multi-Task Learning with Attention based on Segnet was implemented in order to enhance the relative importance given to each task in training. The parameter sharing scheme involved a shared network and task specific attention modules. The original implementation was modified by applying the attention module only to the encoder. The soft attention masks were applied to every one of the five blocks of the encoder, that learns the relative importance of the shared parameters for each task. As there were shared layers along with task specific attention modules, both shared and task specific features were learnt, in a self-supervised manner.
+The form given to the user consists of four entries. Validations were done for each of fields
 
-## Losses & Metrics
+as follows.
+1. Real Age: Enforced between 0 and 120, cannot be left blank.
+2. First Name: Must be more than 1 character
+3. Image: Must have 3 channels and cannot be empty
+4. Data Save Box: If yes, data will be stored and collected
 
-Cross-entropy was used for the loss of both segmentation & classification and mean-squared loss was used for the bounding-box. The metrics used for segmentation were F1, and Jaccard Index (IOU) and accuracy was used for classification. The IOU weighted by the classes was also monitored. Existing methods for loss tuning like SoftAdapt , DWA , GM  losses were investigated but did not improving the target task. Therefore, manually fixed weights were initialised for each of the tasks as follows:
-    
-$L_{total}  = \alpha_{1} L_{seg} + \alpha_{2} L_{cls} + \alpha_{3} L_{bbox}$ 
+Additionally, if no faces were detected on the face detector model, it won't move past this 
+with another error message.
 
-where $\alpha_{1} ,\alpha_{2} ,\alpha_{3}$ were chosen as hyper-parameters instead of being determined based on the rate of change of the losses. This was done with respect the scale of the losses and with keeping in mind the improvement of the target task.
+## Predict Page
 
-### Auxillary tasks
+<img src='/images/predict.png' title="predict">
+<p>Figure: Predict Page</p>
 
-Three auxiliary tasks were implemented on the above-mentioned MTAN architecture. The three auxiliary tasks tackled were the colourisation of grayscale images, the detection of edges in colour images (Canny filter) and the removal of normally distributed noise from an image
+The predict page consists of the image that the user uploaded along with the predicted age &
+the true age that they inputed with the error.
+
+
+# Storage
+
+If the user checks the data saved box, then the data is stored in a table 
+called "Images" where the following fields are saved:
+
+1. first_name
+2. true_age
+3. predicted_age
+4. img_filename 
+5. img_data  
+
+The idea was to store data continously and update the model as time goes by. (However this wasn't possible because Heroku did not support SQLite, maybe in the future I could update this)
+
+
+# Deployment
+
+The app was deployed using the heroku container registry with the dockerfile in the code.
+
+
+
+
+
+
+
+
+
+
+
 
