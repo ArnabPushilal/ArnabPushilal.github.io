@@ -58,7 +58,7 @@ The auxillary tasks were added to the architecture similar to bounding box & cla
 
 ## Denoising
 
-The restoration from a noisy image to a clean image has been of great interest since it was introduced \cite{zhou1988image} from the perspective of neural networks. 
+The restoration from a noisy image to a clean image has been of great interest since it was introduced  from the perspective of neural networks. 
 For this experiment, denoising was achieved by using as training data noisy images, constructed by adding small Gaussian noise with std 2 to clean, original, images, which were used as targets. %The noise added was normally distributed with a mean of 5 and standard deviation of 2 .The training loss used was the Mean Squared Error Loss (MSE). 
 
 ## Edge Filter Detection
