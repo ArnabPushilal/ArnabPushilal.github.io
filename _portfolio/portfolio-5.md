@@ -1,5 +1,5 @@
 ---
-title: "Mixture of Gaussians"
+title: "Binary Classifier using Mixture of Gaussians"
 excerpt: "<br/><img src='/images/post-1.png'>"
 collection: portfolio
 ---
