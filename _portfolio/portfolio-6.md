@@ -4,6 +4,10 @@ excerpt: "<br/><img src='/images/StockData.jpg' >"
 collection: portfolio
 ---
 
+## Code
+
+For code please visit [link](https://github.com/ArnabPushilal/HeroMotoStockPrediction)
+
 ## Motivation 
 I wanted to explore time-series data predction from the stock prices of the company I used to work in.
 It's about 20 years of data, I chose the closing price for prediction.
