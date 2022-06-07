@@ -18,7 +18,7 @@ The notebook containing the code and detailed analysis can be found [here].(http
 
 This was one of the training examples
 
-<img src='/images/apples.jpg'> 
+<img src='/images/apple.jpg'> 
 
 Figure: Apples
 
