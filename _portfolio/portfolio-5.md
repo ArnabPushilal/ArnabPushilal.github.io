@@ -12,7 +12,7 @@ in this case (apple vs Non-Apple) then train a Gaussian Mixture model with Expec
 
 ## Notebook
 
-The notebook containing the code and detailed analysis can be found [here].(https://github.com/ArnabPushilal/GaussianMixture)
+The notebook containing the code and detailed analysis can be found [here](https://github.com/ArnabPushilal/GaussianMixture)
 
 ## Procedure
 
