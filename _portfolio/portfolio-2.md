@@ -13,6 +13,8 @@ The code can be found [here](https://github.com/ArnabPushilal/MLT)
 
 ## Abstract
 
+
+
 In this study, the effectiveness of different MTL architectures was explored, by first only evaluating a baseline inspired on the Segnet architecture; then modifying the baseline to implement MTL framework with two additional tasks (image classfication and bounding-boxes prediction); and finally by fine-tuning the MTL network using pre-trained weights from VGG-16 trained on ImageNet . Furthermore, inspired by the success of attention approaches in computer vision, a more recent and novel MTL network that includes task specific attention modules was investigated. This network is called Multi-Task Attention Network. 
 
 Finally, auxiliary tasks of image denoising, edge detection and image colourisation were implemented. For all of them, self-supervision strategies were used to create the ground-truth labels. The outlook of this research was to investigate the effect of parameter sharing on the effectiveness of learning, the effect of self-supervision on the model's performance and the effectiveness of fine-tuning in the context of simultaneous MTL. We also explored methods of combination of losses to improve our model.
@@ -27,6 +29,8 @@ Finally, auxiliary tasks of image denoising, edge detection and image colourisat
 In this empirical study, a Segnet model was implemented as the baseline for image segmentation. This model is an encoder-decoder network for image segmentation, topologically inherited from a VGG-16 architecture. Initially, Segnet was used only for the single target task of segmentation. Then, an MTL architecture was implemented by adding two layers at the end of the Segnet encoder, in order to perform binary classification and bounding box regression.
 
 ## MTAN
+
+<img src='/images/MTAN.jpeg'>
 
 Multi-Task Learning with Attention based on Segnet was implemented in order to enhance the relative importance given to each task in training. The parameter sharing scheme involved a shared network and task specific attention modules. The original implementation was modified by applying the attention module only to the encoder. The soft attention masks were applied to every one of the five blocks of the encoder, that learns the relative importance of the shared parameters for each task. As there were shared layers along with task specific attention modules, both shared and task specific features were learnt, in a self-supervised manner.
 
