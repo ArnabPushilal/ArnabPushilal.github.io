@@ -1,14 +1,12 @@
 ---
 permalink: /
-title: "About me"
-excerpt: "About me"
+title: "Automatic Neutralization of Sexist language"
+excerpt: ""
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
-### Automatic Neutralization of Sexist language
-
 
 <br/><img src='/images/flowshabri.png'>"
 
