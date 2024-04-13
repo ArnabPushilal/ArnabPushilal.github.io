@@ -7,13 +7,11 @@ redirect_from:
   - /about/
   - /about.html
 ---
-### Whoops this was my old website! Find me at https://arnabpushilal.framer.website/
+### Automatic Neutralization of Sexist language
 
 
----
-title: "Automatic Neutralization of Sexist language"
-excerpt: <br/><img src='/images/flowshabri.png'>"
-collection: portfolio
+<br/><img src='/images/flowshabri.png'>"
+
 ---
 
 
